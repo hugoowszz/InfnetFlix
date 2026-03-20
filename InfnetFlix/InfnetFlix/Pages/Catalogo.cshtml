@@ -1,0 +1,170 @@
+﻿@page
+@model InfnetFlix.Pages.Catalogo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>InfnetFlix - Catálogo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/lib/datatables/dataTables.css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index">InfnetFlix</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Catalogo">Catálogo</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        var nomePerfil = User.FindFirst("NomePerfil")?.Value;
+                        <li class="nav-item">
+                            <span class="nav-link text-dark">Olá, @(nomePerfil)!</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Perfis/EscolherPerfil">Trocar Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-page-handler="Logout">Sair</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div>
+    <table id="tabela" class="display">
+        <thead class="text-center">
+        <tr>
+            <th>Nome</th>
+            <th>Gênero</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var t in Model.Titulos)
+        {
+            <tr class="text-center">
+                <td>
+                    <div class="dropdown">
+                        <a class="text-decoration-none text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @t.nomeTitulo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalDetalhes-@t.idTitulo">Detalhes</a></li>
+                            @if (Model.IdadePerfil >= t.idadeMinima)
+                            {
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalConteudo-@t.idTitulo">Assistir</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="dropdown-item" href="#" onclick="alert('Este título não é recomendado para a sua idade.'); return false;">Assistir</a></li>
+                            }
+                        </ul>
+                    </div>
+                </td>
+                <td>@t.categoria</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+    @* Modal de detalhes *@
+
+    @foreach (var t in Model.Titulos)
+    {
+        <div class="modal fade" id="modalDetalhes-@t.idTitulo" tabindex="-1" aria-labelledby="modalLabel-@t.idTitulo" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center mb-3">
+                            <img src="/@t.imagemCapa" alt="Capa de @t.nomeTitulo" style="max-height: 400px;">
+                        </div>
+                        <ul>
+                            <li><strong>Nome:</strong> @t.nomeTitulo</li>
+                            <li><strong>Descrição:</strong> @t.descricao</li>
+                            <li><strong>Categoria:</strong> @t.categoria</li>
+                            <li><strong>Duração:</strong> @t.duracao minutos</li>
+                            <li><strong>Idade Mínima:</strong> @t.idadeMinima anos</li>
+                            <li><strong>Qualidade:</strong> @t.qualidade</li>
+                        </ul>
+                        <button type="button" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    
+    @* Modal de conteudo *@
+    
+    @foreach (var t in Model.Titulos)
+    {
+        <div class="modal fade" id="modalConteudo-@t.idTitulo" tabindex="-1" aria-labelledby="modalLabel-@t.idTitulo" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h1 id="modalLabel-@t.idTitulo">@t.nomeTitulo</h1>
+                        @{
+                            var progresso = Model.Progressos.FirstOrDefault(p => p.idTitulo == t.idTitulo);
+                            var tempoInicial = "0";
+                            if (progresso != null)
+                            { 
+                                tempoInicial = progresso.minutoParada.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                            }
+                        }
+                        <video id="video-@t.idTitulo" data-id-titulo="@t.idTitulo" data-tempo-inicial="@tempoInicial" style="width: 100%; height: auto; max-height: 720px;" controls>
+                            <source src="~/@t.conteudo" type="video/mp4"/>
+                        </video>
+                        <button type="button" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @Html.AntiForgeryToken()
+    <script src="~/lib/query/jquery-4.0.0.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/datatables/dataTables.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#tabela').DataTable();
+
+        $('video').each(function() {
+            var tempoInicial = $(this).data('tempo-inicial') || 0;
+            $(this).on('loadedmetadata', function() { this.currentTime = tempoInicial; });
+        });
+        $('.modal').on('hide.bs.modal', function () {
+            var video = $(this).find('video')[0];
+            if (video) {
+                video.pause();
+                var idTitulo = $(video).data('id-titulo');
+                var minutoParada = Math.round(video.currentTime);
+                var token = $('input[name="__RequestVerificationToken"]').val();
+
+                $.post('?handler=SalvarProgresso', {
+                    idTitulo: idTitulo,
+                    minutoParada: minutoParada,
+                    __RequestVerificationToken: token
+                });
+            }
+        });
+    });
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@page
+@model InfnetFlix.Pages.Usuarios.CriarPerfil
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criar Perfil</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="card-body">
+    <h2>Criar Novo Perfil</h2>
+    <form method="post">
+        <div>
+            <label asp-for="Perfil.nomePerfil">Nome do Perfil:</label>
+            <input asp-for="Perfil.nomePerfil" required/>
+        </div>
+                        
+        <div>
+            <label asp-for="Perfil.idadePerfil">Sua Idade:</label>
+            <input type="number" asp-for="Perfil.idadePerfil" id="idadeInput" required/>
+        </div>
+                        
+        <div id="pin" style="display: none;">
+            <label asp-for="Perfil.pin" class="form-label">Seu pin:</label>
+            <input asp-for="Perfil.pin" id="pinInput" maxlength="4"/>
+        </div>
+                
+        <button type="submit">Salvar Perfil</button>
+        <a asp-page="/Perfis/EscolherPerfil">Cancelar</a>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var idadeInput = document.getElementById("idadeInput");
+        var divPin = document.getElementById("pin");
+
+        idadeInput.addEventListener("input", function() {
+            var idade = parseInt(idadeInput.value, 10);
+            
+            if (!isNaN(idade) && idade >= 18) {
+                divPin.style.display = "block";
+            } else {
+                divPin.style.display = "none";
+                document.getElementById("pinInput").value = "";
+            }
+        });
+    });
+</script>
+</body>
+</html>

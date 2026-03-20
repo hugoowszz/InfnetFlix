@@ -1,0 +1,42 @@
+﻿@page
+@model InfnetFlix.Pages.Usuarios.GerenciarAssinatura
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+<div>
+    
+    <h2>Gerenciar Assinatura</h2>
+
+    <div>
+        <h4>Status Atual: @(Model.IsPremium ? "Premium" : "Gratuito")</h4>
+        <p>Assinantes Premium podem cadastrar até 5 contas, enquanto o plano Gratuito permite apenas 3 contas</p>
+        <form method="post">
+            @if (Model.IsPremium)
+            {
+                <input type="hidden" name="acao" value="cancelar"/>
+                <button type="submit">Cancelar Assinatura</button>
+            }
+            else
+            {
+                <input type="hidden" name="acao" value="assinar"/>
+                <button type="submit">Assinar Premium</button>
+            }
+        </form>
+    </div>
+
+    <div>
+        <a asp-page="/Perfis/EscolherPerfil">Voltar aos Perfis</a>
+    </div>
+</div>
+</body>
+</html>

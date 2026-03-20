@@ -1,0 +1,41 @@
+﻿@page
+@model InfnetFlix.Pages.Usuarios.GerenciarPerfil
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <h2>Gerenciar Perfil</h2>
+    <form method="post">
+        <input type="hidden" asp-for="Perfil.idPerfil"/>
+        <div>
+            <label asp-for="Perfil.nomePerfil">Nome:</label>
+            <input asp-for="Perfil.nomePerfil" required/>
+        </div>
+        <div>
+            <label asp-for="Perfil.idadePerfil">Idade:</label>
+            <input asp-for="Perfil.idadePerfil" required/>
+        </div>
+        @if (Model.Perfil.pin != "")
+        {
+            <div>
+                <label asp-for="Perfil.pin">Pin:</label>
+                <input asp-for="Perfil.pin" required/>
+            </div>
+        }
+        <button type="submit">Salvar</button>
+    </form>
+    <div>
+        <a asp-page="EscolherPerfil">Cancelar</a>
+    </div>
+</div>
+</body>
+</html>

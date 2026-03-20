@@ -1,0 +1,35 @@
+﻿@page
+@model InfnetFlix.Pages.Login.CadastroUsuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <h1>Crie sua conta</h1>
+        
+        <label asp-for="Usuario.nomeUsuario">Seu nome:</label>
+        <input asp-for="Usuario.nomeUsuario" required/>
+        
+        <label asp-for="Usuario.emailUsuario">Seu email:</label>
+        <input asp-for="Usuario.emailUsuario" required/>
+        
+        <label asp-for="Usuario.senhaUsuario">Sua senha:</label>
+        <input asp-for="Usuario.senhaUsuario" required/>
+        
+        <label asp-for="Usuario.idadeUsuario">Sua idade:</label>
+        <input asp-for="Usuario.idadeUsuario" required/>
+        
+        <button type="submit">Criar conta</button>
+    </form>
+</div>
+</body>
+</html>

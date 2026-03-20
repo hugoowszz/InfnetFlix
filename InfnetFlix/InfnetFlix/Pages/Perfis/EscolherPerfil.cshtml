@@ -1,0 +1,67 @@
+﻿@page
+@model InfnetFlix.Pages.Usuarios.EscolherPerfil
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Escolher Perfil</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <span class="navbar-brand">InfnetFlix</span>
+            <div class="d-flex justify-content-end w-100">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav text-dark">Olá, @User.Identity?.Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Perfis/GerenciarAssinatura">Gerenciar Assinatura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-page-handler="Logout">Sair</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="text-center mt-5">
+    <h2>Quem está assistindo?</h2>
+
+    <div class="text-center">
+        @foreach (var perfil in Model.Perfis)
+        {
+            <div>
+                <form method="post">
+                    <input type="hidden" name="idPerfilSelecionado" value="@perfil.idPerfil" />
+                    <button type="submit">
+                        <p class="d-flex align-items-center justify-content-center" style="width: 100px;height: 100px">@perfil.nomePerfil</p>
+                    </button>
+                    <a asp-page="GerenciarPerfil" asp-route-id="@perfil.idPerfil">Gerenciar Perfil</a>
+                </form>
+            </div>
+        }
+        
+        
+        @if (Model.Perfis.Count < Model.LimitePerfis)
+        {
+            <div>
+                <a asp-page="CriarPerfil">
+                    <p>Adicionar</p>
+                </a>
+            </div>
+        }
+        
+    </div>
+</div>
+</body>
+</html>

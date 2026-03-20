@@ -1,0 +1,83 @@
+is_global = true
+build_property.TargetFramework = net11.0
+build_property.TargetFramework = net11.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v11.0
+build_property.RootNamespace = InfnetFlix
+build_property.RootNamespace = InfnetFlix
+build_property.ProjectDir = C:\dev\Github\InfnetFlix\InfnetFlix\InfnetFlix\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 11.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\dev\Github\InfnetFlix\InfnetFlix\InfnetFlix
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 11.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Catalogo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0YWxvZ28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Login/CadastroUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cQ2FkYXN0cm9Vc3VhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Perfis/CriarPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVyZmlzXENyaWFyUGVyZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Perfis/EscolherPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVyZmlzXEVzY29saGVyUGVyZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Perfis/GerenciarAssinatura.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVyZmlzXEdlcmVuY2lhckFzc2luYXR1cmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Perfis/GerenciarPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVyZmlzXEdlcmVuY2lhclBlcmZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/Github/InfnetFlix/InfnetFlix/InfnetFlix/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-1x0ms529px

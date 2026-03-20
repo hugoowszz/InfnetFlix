@@ -1,0 +1,85 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "InfnetFlix - Login";
+}
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+
+<div class="text-center">
+    @if (!string.IsNullOrEmpty(Model.MensagemErro))
+    {
+        <p style="color: red;">@Model.MensagemErro</p>
+    }
+    @if (!string.IsNullOrEmpty(Model.MensagemSucesso))
+    {
+        <p style="color: green;">@Model.MensagemSucesso</p>
+    }
+    <form method="post">
+        <h1>Entre na sua conta</h1>
+        
+        <label asp-for="Usuario.emailUsuario">Seu email:</label>
+        <input asp-for="Usuario.emailUsuario" required/>
+        
+        <label asp-for="Usuario.senhaUsuario">Sua senha:</label>
+        <input type="password" asp-for="Usuario.senhaUsuario" required/>
+        
+        <button type="submit">Fazer Login</button>
+    </form>
+    
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modalEsqueciSenha">Esqueci minha senha</a>
+
+    <div class="modal fade" id="modalEsqueciSenha" tabindex="-1" aria-labelledby="modalEsqueciSenhaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form method="post" asp-page-handler="RecuperarSenha">
+                        <div>
+                            <label asp-for="Usuario.emailUsuario">Endereço de e-mail:</label>
+                            <input type="email" asp-for="Usuario.emailUsuario" required>
+                        </div>
+                        <div>
+                            <label asp-for="CodigoRecuperacao">Código:</label>
+                            <input type="text" asp-for="CodigoRecuperacao" required>
+                        </div>
+                        <button type="submit">Verificar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalRedefinirSenha" tabindex="-1" aria-labelledby="modalRedefinirSenhaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form method="post" asp-page-handler="RedefinirSenha">
+                        <input type="hidden" asp-for="EmailParaRedefinir" />
+                        <div>
+                            <label asp-for="NovaSenha">Nova Senha:</label>
+                            <input asp-for="NovaSenha" required>
+                        </div>
+                        <button type="submit">Salvar nova senha</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br/>
+    
+    <a asp-page="Login/CadastroUsuario" class="text-decoration-underline">Fazer cadastro</a>
+</div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+@if (Model.ExibirModalRedefinir)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var myModal = new bootstrap.Modal(document.getElementById('modalRedefinirSenha'));
+            myModal.show();
+        });
+    </script>
+}
