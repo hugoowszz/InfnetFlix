@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InfnetFlix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e02839eca770838940b125cfeec0cac2ec877246")]
 [assembly: System.Reflection.AssemblyProductAttribute("InfnetFlix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InfnetFlix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

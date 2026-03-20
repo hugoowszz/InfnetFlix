@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
-using System.Linq;
 
-namespace InfnetFlix.Pages.Usuarios;
+namespace InfnetFlix.Pages.Perfis;
 
 public class GerenciarPerfil : PageModel
 {

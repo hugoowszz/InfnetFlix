@@ -3,7 +3,7 @@ using InfnetFlix.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace InfnetFlix.Pages.Usuarios;
+namespace InfnetFlix.Pages.Perfis;
 
 public class CriarPerfil : PageModel
 {

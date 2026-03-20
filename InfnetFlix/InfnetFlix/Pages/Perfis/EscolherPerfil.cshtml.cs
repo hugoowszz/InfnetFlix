@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace InfnetFlix.Pages.Usuarios;
+namespace InfnetFlix.Pages.Perfis;
 
 [Authorize]
 public class EscolherPerfil : PageModel
